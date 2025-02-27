@@ -12,7 +12,7 @@ selector {
 */
 
 body {
-    background-color: palevioletred;
+    background-color: #d87093;
 }
 
 h1 {
@@ -57,4 +57,21 @@ nav a:hover {
     background-color: lightyellow;
     padding: 20px;
     border-radius: 10px;
+}
+.grid-container-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.grid-container-gallery figure {
+    margin: 0;
+}
+.grid-container-gallery img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+.grid-container-gallery figcaption {
+    text-align: center;
 }
