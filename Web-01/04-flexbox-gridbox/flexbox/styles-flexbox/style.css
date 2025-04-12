@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Zajistí, že layout zabere celou výšku stránky */
+}
+
+header {
+    background-color: #828dee;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.content {
+    display: flex;
+    flex: 1; /* Zajistí, že content vyplní prostor mezi header a footer */
+    gap: 10px;
+}
+
+.sidebar1, .sidebar2 {
+    background-color: #828dee;
+    padding: 20px;
+    flex-grow: 1; 
+    text-align: center;
+    margin: 10px;
+}
+
+main {
+    background-color: #828dee;
+    padding: 20px;
+    flex-grow: 2; /* Hlavní obsah se rozprostře mezi sidebar 1 a 2 */
+    text-align: center;
+   
+}
+
+footer {
+    background-color: #828dee;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+@media (max-width: 768px){
+    .content {
+        flex-direction: column;
+    }
+    .sidebar1, .sidebar2, main {
+        width: 100%;
+        flex-basis: auto;
+        margin-bottom: 10px;
+    }
+
+}
