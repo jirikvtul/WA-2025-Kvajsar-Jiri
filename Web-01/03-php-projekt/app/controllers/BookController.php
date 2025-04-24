@@ -1,4 +1,5 @@
 <?php
+session_start(); // Start session pro správu přihlášení
 require_once '../models/Database.php';
 require_once '../models/Book.php';
 
@@ -12,7 +13,19 @@ class BookController {
         $this->bookModel = new Book($this->db);
     }
 
+    // Funkce pro kontrolu přihlášení
+    private function isUserLoggedIn() {
+        return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+    }
+
     public function createBook() {
+        // Kontrola přihlášení
+        if (!$this->isUserLoggedIn()) {
+            // Pokud uživatel není přihlášen, přesměrujeme na přihlašovací stránku
+            header("Location: ../views/login.php?error=please_login");
+            exit();
+        }
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
@@ -23,6 +36,9 @@ class BookController {
             $isbn = htmlspecialchars($_POST['isbn']);
             $description = htmlspecialchars($_POST['description']);
             $link = htmlspecialchars($_POST['link']);
+            
+            // Přidání ID uživatele z session
+            $user_id = $_SESSION['user_id'];
 
             // Zpracování nahraných obrázků
             $imagePaths = [];
@@ -38,8 +54,8 @@ class BookController {
                 }
             }
 
-            // Uložení knihy do DB - dočasné řešení, než budeme mít výpis knih
-            if ($this->bookModel->create($title, $author, $category, $subcategory, $year, $price, $isbn, $description, $link, $imagePaths)) {
+            // Uložení knihy do DB
+            if ($this->bookModel->create($title, $author, $category, $subcategory, $year, $price, $isbn, $description, $link, $imagePaths, $user_id)) {
                 header("Location: ../controllers/book_list.php");
                 exit();
             } else {
@@ -48,7 +64,7 @@ class BookController {
         }
     }
 
-    public function listBooks () {
+    public function listBooks() {
         $books = $this->bookModel->getAll();
         include '../views/books/book_list.php';
     }
