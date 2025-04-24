@@ -44,23 +44,18 @@ if (isset($_GET['edit'])) {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
+                            <a class="nav-link" href="../views/books/book_create.php">Přidat knihu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/books_list.php">Výpis knih</a>
+                            <a class="nav-link" href="#">Výpis knih</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    
 
-
-
-
-        <h2>Výpis knih</h2>
         <?php if ($editMode): ?>
-        <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
@@ -121,55 +116,63 @@ if (isset($_GET['edit'])) {
                             <button type="submit" class="btn btn-success w-100">Uložit změny</button>
                         </form>
                     </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($books)): ?>
-        <table class="table table-bordered table-hover">
-            <thead class="table-primary">
-                <tr>
-                    <th>ID</th>
-                    <th>Název</th>
-                    <th>Autor</th>
-                    <th>Kategorie</th>
-                    <th>Rok</th>
-                    <th>Cena</th>
-                    <th>ISBN</th>
-                    <th>Akce</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($books as $book): ?>
-                <tr>
-                    <td><?= htmlspecialchars($book['id']) ?></td>
-                    <td><?= htmlspecialchars($book['title']) ?></td>
-                    <td><?= htmlspecialchars($book['author']) ?></td>
-                    <td><?= htmlspecialchars($book['category']) ?></td>
-                    <td><?= htmlspecialchars($book['year']) ?></td>
-                    <td><?= number_format($book['price'], 2, ',', ' ') ?> Kč</td>
-                    <td><?= htmlspecialchars($book['isbn']) ?></td>
-                    <td>
-                        <a href="?edit=<?= $book['id'] ?>" class="btn btn-sm btn-warning">Upravit</a>
-                        <a href="../../controllers/book_delete.php?id=<?= $book['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    
-        <?php else: ?>
-        <div class="alert alert-info">Žádná kniha nebyla nalezena.</div>
-    <?php endif; ?>
-            
+        <h2>Výpis knih</h2>
+        <?php if (!empty($books)): ?>
+            <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Název</th>
+                        <th>Autor</th>
+                        <th>Kategorie</th>
+                        <th>Rok</th>
+                        <th>Cena</th>
+                        <th>ISBN</th>
+                        <th>Akce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($books as $book): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($book['id']) ?></td>
+                        <td><?= htmlspecialchars($book['title']) ?></td>
+                        <td><?= htmlspecialchars($book['author']) ?></td>
+                        <td><?= htmlspecialchars($book['category']) ?></td>
+                        <td><?= htmlspecialchars($book['year']) ?></td>
+                        <td><?= number_format($book['price'], 2, ',', ' ') ?> Kč</td>
+                        <td><?= htmlspecialchars($book['isbn']) ?></td>
+                        <td>
+                            <a href="?edit=<?= $book['id'] ?>" class="btn btn-sm btn-primary">Upravit</a>
+                            <a href="../../controllers/book_delete.php?id=<?= $book['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        
+            <?php else: ?>
+            <div class="alert alert-info">Žádná kniha nebyla nalezena.</div>
+        <?php endif; ?>
 
-    
+
+
+
+        
+        
+
+
+
+
+
+
     </div>
-     
-    
-    <!-- Bootstrap JS -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

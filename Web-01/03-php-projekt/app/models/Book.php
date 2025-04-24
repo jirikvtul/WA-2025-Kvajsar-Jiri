@@ -31,7 +31,7 @@ class Book {
         ]);
     }
 
-    public function getAll(){
+    public function getAll() {
         $sql = "SELECT * FROM books ORDER BY created_at DESC";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
@@ -72,9 +72,13 @@ class Book {
             ':link' => $link
         ]);
     }
+
     public function delete($id) {
         $sql = "DELETE FROM books WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([':id' => $id]);
     }
+
+
+
 }
