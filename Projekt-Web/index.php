@@ -13,21 +13,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#!">Sekáčové PC sestavy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="introduction/introduction.html">Úvod</a></li>
-                        <li class="nav-item"><a class="nav-link" href="compatibility/compatibility.html">Kompatibilita komponentů</a></li>
-                        <li class="nav-item"><a class="nav-link" href="purchasing/purchasing.html">Nákup komponent</a></li>
-                        <li class="nav-item"><a class="nav-link" href="usefulwebsites/usefulwebsites.html">Užitečné odkazy</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include 'app/views/articles/navbar.php';?> <!-- Volání navbaru -->
         <!-- Page header with logo and tagline-->
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
@@ -99,19 +85,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Pagination-->
-                    <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav>
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -122,16 +95,15 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li><a href="#!">Úvod do problematiky</a></li>
+                                        <li><a href="#!">Kompatibilita komponentů</a></li>
+                                        <li><a href="#!">Nákup komponent</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li><a href="#!">Užitečné odkazy</a></li>
+                                        <li><a href="#!">Porovnání cen</a></li>
                                     </ul>
                                 </div>
                             </div>
