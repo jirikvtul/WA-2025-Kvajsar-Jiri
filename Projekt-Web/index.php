@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Sekáčové PC sestavy</title>
+        <meta name="author" content="Jiří Kvajsar" />
+        <title>Home | ReComp</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -15,7 +15,7 @@
         <!-- Responsive navbar-->
         <?php include 'app/views/articles/navbar.php';?> <!-- Volání navbaru -->
         <!-- Page header with logo and tagline-->
-        <header class="py-5 bg-light border-bottom mb-4">
+        <header class="py-5 bg-warning border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Sekáčové PC sestavy</h1>
@@ -90,19 +90,19 @@
                 <div class="col-lg-4">
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">Kategorie</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Úvod do problematiky</a></li>
-                                        <li><a href="#!">Kompatibilita komponentů</a></li>
-                                        <li><a href="#!">Nákup komponent</a></li>
+                                        <li><a href="introduction/introduction.php">Úvod do problematiky</a></li>
+                                        <li><a href="compatibility/compatibility.php">Kompatibilita komponentů</a></li>
+                                        <li><a href="purchasing/purchasing.php">Nákup komponent</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Užitečné odkazy</a></li>
+                                        <li><a href="usefulwebsites/usefulwebsites.php">Užitečné odkazy</a></li>
                                         <li><a href="#!">Porovnání cen</a></li>
                                     </ul>
                                 </div>

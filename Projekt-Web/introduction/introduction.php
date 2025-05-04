@@ -15,7 +15,7 @@
     <!-- Responsive navbar-->
     <?php include '../app/views/articles/navbar.php';?> <!-- Volání navbaru -->
     <!-- Page header-->
-    <header class="py-5 bg-light border-bottom mb-4">
+    <header class="py-5 bg-warning rborder-bottom mb-4">
         <div class="container">
             <div class="text-center my-5">
                 <h1 class="fw-bolder">Úvod</h1>

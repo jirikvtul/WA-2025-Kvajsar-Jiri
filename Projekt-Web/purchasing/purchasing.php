@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php include '../app/views/articles/navbar.php'; ?>
-    <header class="py-5 bg-light border-bottom mb-4">
+    <header class="py-5 bg-warning border-bottom mb-4">
         <div class="container">
             <div class="text-center my-5">
                 <h1 class="fw-bolder">Nákup komponent</h1>
