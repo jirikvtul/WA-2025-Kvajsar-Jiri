@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="cs">
     <head>
+        <!-- Meta tags for proper character encoding and responsive viewport -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- SEO meta tags for better search engine visibility -->
         <meta name="description" content="Blog o stavbě PC sestav s důrazem na použité komponenty a udržitelnost." />
         <meta name="author" content="Jiří Kvajsar" />
         <title>Home | ReComp</title>
-        <!-- Favicon-->
+        
+        <!-- Favicon for browser tab icon -->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        
+        <!-- External CSS frameworks and libraries -->
+        <!-- Bootstrap 5.3.5 for responsive layout and components -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <!-- Bootstrap Icons for scalable vector icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
     <body class="bg-light">
-        <!-- Responsive navbar-->
+        <!-- Navigation bar included from separate file for better maintainability -->
         <?php include 'app/views/articles/navbar.php';?>
-        <!-- Page header with logo and tagline-->
+        
+        <!-- Hero section with main title and tagline -->
         <header class="py-5 bg-warning border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
@@ -24,29 +31,34 @@
                 </div>
             </div>
         </header>
-        <!-- Page content-->
+
+        <!-- Main content container -->
         <div class="container">
             <div class="row g-4">
-                <!-- Main content-->
+                <!-- Left column - Main content area (8 columns wide on large screens) -->
                 <div class="col-lg-8">
-                    <!-- Featured sections -->
+                    <!-- Grid of featured sections -->
                     <div class="row g-4">
-                        <!-- Kompatibilita -->
+                        <!-- Compatibility section card -->
                         <div class="col-md-6">
                             <div class="card shadow-sm h-100">
                                 <div class="card-body d-flex flex-column">
+                                    <!-- Card header with icon and title -->
                                     <div class="d-flex align-items-center mb-3">
                                         <i class="bi bi-cpu-fill text-primary fs-1 me-3"></i>
                                         <h2 class="card-title h4 mb-0">Kompatibilita komponentů</h2>
                                     </div>
+                                    <!-- Card content -->
                                     <p class="card-text">Naučte se, jak správně vybrat kompatibilní komponenty pro vaši PC sestavu. Zjistěte, které kombinace fungují nejlépe a jak se vyhnout běžným problémům.</p>
+                                    <!-- Call-to-action button -->
                                     <a class="btn btn-primary mt-auto" href="compatibility/compatibility.php">
                                         <i class="bi bi-arrow-right-circle me-1"></i>Zjistit více
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Nákup -->
+
+                        <!-- Purchasing section card -->
                         <div class="col-md-6">
                             <div class="card shadow-sm h-100">
                                 <div class="card-body d-flex flex-column">
@@ -61,7 +73,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Užitečné odkazy -->
+
+                        <!-- Useful links section card -->
                         <div class="col-md-6">
                             <div class="card shadow-sm h-100">
                                 <div class="card-body d-flex flex-column">
@@ -76,7 +89,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Komunita -->
+
+                        <!-- Community section card -->
                         <div class="col-md-6">
                             <div class="card shadow-sm h-100">
                                 <div class="card-body d-flex flex-column">
@@ -93,15 +107,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- Side widgets-->
+
+                <!-- Right column - Sidebar (4 columns wide on large screens) -->
                 <div class="col-lg-4">
-                    <!-- Categories widget-->
+                    <!-- Categories widget -->
                     <div class="card shadow-sm mb-4">
                         <div class="card-header bg-primary text-white">
                             <i class="bi bi-grid-3x3-gap me-2"></i>Kategorie
                         </div>
                         <div class="card-body">
+                            <!-- Two-column layout for categories -->
                             <div class="row">
+                                <!-- Left column of categories -->
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
                                         <li class="mb-2">
@@ -121,6 +138,7 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <!-- Right column of categories -->
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
                                         <li class="mb-2">
@@ -141,14 +159,15 @@
                 </div>
             </div>
         </div>
-        <!-- Footer-->
+
+        <!-- Footer section -->
         <footer class="py-4 bg-dark mt-5">
             <div class="container">
                 <p class="m-0 text-center text-white">&copy; Sekáčové PC sestavy 2025</p>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
+
+        <!-- Bootstrap JavaScript bundle for interactive components -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>     
     </body>
-</html>
 </html>

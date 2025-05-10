@@ -7,20 +7,38 @@ session_start();
 require_once '../models/Database.php';
 require_once '../models/Article.php';
 
+/**
+ * Controller class for handling article-related operations
+ */
 class ArticleController {
+    /** @var PDO Database connection instance */
     private $db;
+    /** @var Article Article model instance */
     private $articleModel;
 
+    /**
+     * Constructor for ArticleController
+     * Initializes database connection and Article model
+     */
     public function __construct() {
         $database = new Database();
         $this->db = $database->getConnection();
         $this->articleModel = new Article($this->db);
     }
 
+    /**
+     * Checks if a user is currently logged in
+     * @return bool True if user is logged in
+     */
     private function isUserLoggedIn() {
         return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
     }
 
+    /**
+     * Handles article creation
+     * Redirects to login page if user is not authenticated
+     * Processes POST request to create new article
+     */
     public function createArticle() {
         if (!$this->isUserLoggedIn()) {
             header("Location: ../views/auth/login.php?error=please_login");
@@ -45,6 +63,11 @@ class ArticleController {
         include '../views/articles/article_create.php';
     }
 
+    /**
+     * Lists all articles
+     * Redirects to login page if user is not authenticated
+     * Displays articles in a table format
+     */
     public function listArticles() {
         if (!$this->isUserLoggedIn()) {
             header("Location: ../views/auth/login.php?error=please_login");

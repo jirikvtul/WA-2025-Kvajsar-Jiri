@@ -25,39 +25,90 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
-                        <h2 class="card-title h3 mb-4">Základní komponenty PC</h2>
-                        <p class="card-text mb-4">Každá PC sestava se skládá minimálně ze 7 komponent, bez kterých není možné počítač zprovoznit: CPU (procesor), MOBO (základní deska), GPU (grafická karta), RAM (operační paměť), SSD/HDD (úložiště), PSU (zdroj), PC Case (skříň).</p>
-                        
-                        <div class="mb-4">
+                        <h2 class="card-title h3 mb-4">Pochopení PC komponent a jejich kompatibility</h2>
+                        <div class="card-text">
+                            <p class="mb-4">Každá PC sestava se skládá minimálně ze 7 komponent, bez kterých není možné počítač zprovoznit:</p>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-cpu me-2"></i><strong>CPU</strong> (procesor)</li>
+                                <li><i class="bi bi-motherboard me-2"></i><strong>MOBO</strong> (základní deska)</li>
+                                <li><i class="bi bi-gpu-card me-2"></i><strong>GPU</strong> (grafická karta)</li>
+                                <li><i class="bi bi-memory me-2"></i><strong>RAM</strong> (operační paměť)</li>
+                                <li><i class="bi bi-hdd me-2"></i><strong>SSD/HDD</strong> (úložiště)</li>
+                                <li><i class="bi bi-lightning-charge me-2"></i><strong>PSU</strong> (zdroj)</li>
+                                <li><i class="bi bi-pc-display me-2"></i><strong>PC Case</strong> (skříň)</li>
+                            </ul>
+
                             <h3 class="h4 mb-3">Procesor a základní deska</h3>
-                            <p class="card-text">Klíčová je vzájemná kompatibilita procesoru a základní desky, zejména shoda patice. Například procesor AMD Ryzen 7 9800X3D používá patici AM5 (LGA – Land Grid Array), kde jsou piny na základní desce. Naopak PGA (Pin Grid Array) má piny na procesoru. Pro nadšence je výhodnější PGA patice (např. AM4), protože ohnutý pin lze snáze opravit doma šroubovákem nebo párátkem. U LGA patic (AM5, moderní Intel) je oprava složitější.</p>
-                        </div>
+                            <p class="mb-4">Tyto součástky jsou nezbytné pro chod počítače. Klíčová je jejich vzájemná kompatibilita. Nejdůležitější je shoda patice procesoru se základní deskou. Při zkoumání procesoru, například jednoho z aktuálně nejlepších herních procesorů AMD Ryzen 7 9800X3D, zjistíme, že nemá piny na sobě.</p>
+                            
+                            <div class="row mb-4 justify-content-center">
+                                <div class="col-md-6">
+                                    <img src="../images/AMD_ryzen_9800_x3d.png" class="img-fluid rounded mb-2" alt="AMD Ryzen 9800X3D">
+                                    <p class="text-muted small text-center">AMD Ryzen 9800X3D</p>
+                                </div>
+                            </div>
 
-                        <div class="mb-4">
+                            <p class="mb-4">Patice AM5 je tzv. LGA (Land Grid Array), kde jsou piny umístěny na základní desce, nikoli na procesoru. Naopak PGA (Pin Grid Array) má piny na procesoru. Na níže uvedeném obrázku je patrný rozdíl mezi těmito dvěma typy patic.</p>
+
+                            <div class="row mb-4 justify-content-center">
+                                <div class="col-md-6">
+                                    <img src="../images/PGAvsLGA.png" class="img-fluid rounded mb-2" alt="PGA vs LGA">
+                                    <p class="text-muted small text-center">PGA vs LGA</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="../images/PGAvsLGA_MOBO.png" class="img-fluid rounded mb-2" alt="PGA vs LGA na základní desce">
+                                    <p class="text-muted small text-center">PGA vs LGA na základní desce</p>
+                                </div>
+                            </div>
+
+                            <p class="mb-4">Pro běžné nadšence nemá tato informace vliv na výkon systému, ale je důležité, aby se patice základní desky shodovala s procesorem. Z mého pohledu stojí za zmínku, že při nákupu použitého nebo poškozeného procesoru je výhodnější volit PGA patice, například AM4 od AMD. Pokud je procesor inzerován jako poškozený, může být příčinou ohnutý pin, který lze relativně jednoduše narovnat pomocí drobného plochého šroubováku nebo párátka. U LGA procesorů, jako jsou nové AM5 nebo moderní procesory Intel, je domácí oprava výrazně složitější.</p>
+
                             <h3 class="h4 mb-3">Paměť RAM</h3>
-                            <p class="card-text">Po výběru platformy je třeba zajistit kompatibilitu RAM. Nejnovější jsou DDR5 paměti, ale starší sestavy často používají DDR4. Systém nebude fungovat, pokud RAM nesplňuje požadavky základní desky.</p>
-                        </div>
+                            <p class="mb-4">Po výběru platformy je třeba zaměřit se na kompatibilitu operační paměti. Nejnovější jsou paměti DDR5, ale při nákupu použitých či starších komponent se pravděpodobně setkáte s DDR4. Systém nebude fungovat, pokud paměti nesplňují požadavky základní desky.</p>
 
-                        <div class="mb-4">
                             <h3 class="h4 mb-3">Grafická karta</h3>
-                            <p class="card-text">Pro herní výkon volte nejvýkonnější grafickou kartu v rámci rozpočtu, pro střih videí nebo práci investujte více do CPU a RAM. Grafické karty se připojují přes PCI-Express port a liší se výkonem a rozměry. Například GIGABYTE RTX 4060 AERO OC 8G vyžaduje zdroj minimálně 450 W, ale doporučuji 600–650 W od kvalitního výrobce, aby se předešlo zkratu a poškození systému.</p>
-                        </div>
+                            <p class="mb-4">Následuje výběr grafické karty. Pro nejlepší herní výkon je ideální zvolit co nejvýkonnější kartu, kterou rozpočet dovolí, a ostatní komponenty případně omezit. Naopak pro střih videí nebo pracovní využití je vhodnější investovat do výkonnějšího procesoru a větší kapacity RAM. Grafické karty se připojují přes PCI-Express port, do kterého by měly pasovat všechny běžně dostupné karty. Rozdíly spočívají pouze ve výkonu a rozměrech.</p>
 
-                        <div class="mb-4">
+                            <div class="row mb-4 justify-content-center">
+                                <div class="col-md-8">
+                                    <img src="../images/GPU_RTX_4060_EXAMPLE.png" class="img-fluid rounded mb-2" alt="GIGABYTE RTX 4060 AERO OC 8G">
+                                    <p class="text-muted small text-center">GIGABYTE RTX 4060 AERO OC 8G</p>
+                                </div>
+                            </div>
+
+                            <p class="mb-4">Výrobce karet uvádí doporučený výkon zdroje, například u karty GIGABYTE RTX 4060 AERO OC 8G jsou uvedeny následující parametry:</p>
+                            <ul class="mb-4">
+                                <li><strong>Velikost chladiče (počet zabraných slotů, výška karty).</strong></li>
+                                <li><strong>Šířka karty (každá skříň má maximální povolenou šířku).</strong></li>
+                                <li><strong>Doporučený výkon zdroje (minimálně 450 W).</strong></li>
+                            </ul>
+
+                            <p class="mb-4">V současnosti je 450 W považováno za nižší hodnotu, a osobně doporučuji volit zdroje s výkonem 600–650 W od kvalitních výrobců s vysokou efektivitou. Příliš slabý zdroj může potenciálně způsobit zkrat a poškodit celý systém, což by bylo značně nepříjemné.</p>
+
                             <h3 class="h4 mb-3">Rozměry systému (Form-Factor MOBO)</h3>
-                            <p class="card-text">Základní desky se dělí podle velikosti: mini-ITX (kompaktní, pro zkušené), m-ATX (kompromis velikosti a funkcí), ATX (standardní, ideální pro začátečníky). Formát ovlivňuje kompatibilitu se skříní a dalším hardwarem.</p>
-                        </div>
+                            <p class="mb-4">Dalším aspektem kompatibility jsou rozměry. Základní desky se dělí do tří hlavních kategorií podle fyzické velikosti:</p>
+                            <ol class="mb-4">
+                                <li><strong>mini-ITX</strong></li>
+                                <li><strong>m-ATX</strong></li>
+                                <li><strong>ATX</strong></li>
+                            </ol>
 
-                        <div class="mb-4">
+                            <div class="row mb-4 justify-content-center">
+                                <div class="col-md-8">
+                                    <img src="../images/MOBO_SIZE_COMPARASION.png" class="img-fluid rounded mb-2" alt="Porovnání velikostí základních desek">
+                                    <p class="text-muted small text-center">Porovnání velikostí základních desek <small class="text-muted">(Zdroj: Voltcave.com)</small></p>
+                                </div>
+                            </div>
+
+                            <p class="mb-4">Tyto formáty jsou seřazeny od nejmenšího po největší. Jedná se především o fyzické charakteristiky systému.</p>
+                            <ul class="mb-4">
+                                <li><strong>ATX</strong> je standardní velikost pro běžné PC sestavy, ideální pro začátečníky díky dostatku prostoru pro stavbu a případný dodatečný hardware.</li>
+                                <li><strong>m-ATX</strong> představuje zhruba dvoutřetinový formát ATX. Nabízí většinu funkcí ATX s úsporou místa.</li>
+                                <li><strong>mini-ITX</strong> je určen pro nejkompaktnější sestavy. Optimalizuje prostor, ale přináší výrazná omezení při stavbě, proto je vhodnější pro zkušené uživatele, kteří chtějí maximalizovat efektivitu.</li>
+                            </ul>
                             <h3 class="h4 mb-3">Pomocníci při výběru komponent</h3>
-                            <p class="card-text">Pro začátečníky jsou užitečné nástroje jako PCPartPicker nebo Alza PC Konfigurátor, které zajišťují kompatibilitu komponent. Doporučuji také tutoriály a fóra jako LinusTechTips nebo subreddit r/buildapc.</p>
+                            <p class="mb-4">Pro člověka, který se s těmito pojmy setkává poprvé, může být výběr komponent složitý a matoucí. Na internetu však existují stovky tutoriálů, které tyto aspekty podrobně vysvětlují a pomáhají s výběrem. Kromě toho portály jako <a href="https://pcpartpicker.com" target="_blank" class="text-decoration-none">PCPartPicker</a> nebo <a href="https://www.alza.cz/pc-konfigurator" target="_blank" class="text-decoration-none">Alza PC Konfigurátor</a> zajišťují, že zvolené komponenty budou vzájemně kompatibilní.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="card shadow-sm mb-4">
-                    <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="Ilustrační obrázek PC komponent">
-                    <div class="card-body">
-                        <p class="card-text text-muted"><em>Obrázek: Rozdíl mezi LGA a PGA paticemi, zdroj: Unsplash.com.</em></p>
                     </div>
                 </div>
             </div>
