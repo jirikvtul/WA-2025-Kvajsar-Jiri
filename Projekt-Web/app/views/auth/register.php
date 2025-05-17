@@ -1,60 +1,59 @@
 <?php
 /**
- * Registration Page
+ * Stránka pro registraci uživatelů
  * 
- * This page provides the registration form for new user accounts.
- * Features:
- * - User registration form with validation
- * - Password strength requirements
- * - Client-side password matching validation
- * - Error message handling
- * - Optional fields for additional user information
+ * Tato stránka poskytuje:
+ * - Registrační formulář s validací
+ * - Požadavky na sílu hesla
+ * - Kontrolu shody hesel na straně klienta
+ * - Zpracování chybových hlášek
+ * - Volitelná pole pro dodatečné informace
  */
 
-// Start session for user authentication
+// Spuštění session pro autentizaci uživatele
 session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <!-- Meta tags for proper character encoding and responsive viewport -->
+    <!-- Meta tagy pro správné kódování a responzivní zobrazení -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- SEO meta tags -->
+    <!-- SEO meta tagy -->
     <meta name="description" content="Registrace do sekce Sekáčové PC sestavy">
     <meta name="author" content="Jiří Kvajsar">
     <title>Registrace - Sekáčové PC sestavy</title>
     
-    <!-- Favicon and external resources -->
+    <!-- Favicon a externí zdroje -->
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
-    <!-- Bootstrap CSS for styling -->
+    <!-- Bootstrap CSS pro stylování -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- Bootstrap Icons for UI elements -->
+    <!-- Bootstrap Icons pro UI prvky -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
-    <!-- Include the navigation bar -->
+    <!-- Zahrnutí navigační lišty -->
     <?php include '../articles/navbar.php'; ?>
 
-    <!-- Main content container -->
+    <!-- Hlavní kontejner obsahu -->
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <!-- Registration form container - centered and responsive -->
+            <!-- Kontejner registračního formuláře - centrovaný a responzivní -->
             <div class="col-md-8 col-lg-6">
                 <div class="card shadow-sm">
-                    <!-- Form header -->
+                    <!-- Hlavička formuláře -->
                     <div class="card-header bg-primary text-white text-center py-3">
                         <h2 class="h3 mb-0"><i class="bi bi-person-plus me-2"></i>Registrace</h2>
                     </div>
-                    <!-- Form body -->
+                    <!-- Tělo formuláře -->
                     <div class="card-body p-4">
-                        <!-- Error message display with specific error types -->
+                        <!-- Zobrazení chybových hlášek podle typu chyby -->
                         <?php if (isset($_GET['error'])): ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="bi bi-exclamation-triangle-fill me-2"></i>
                                 <div>
                                     <?php
-                                    // Error message handling based on error type
+                                    // Zpracování chybových hlášek podle typu chyby
                                     switch ($_GET['error']) {
                                         case 'empty_fields':
                                             echo 'Vyplňte prosím všechna povinná pole.';
@@ -73,23 +72,23 @@ session_start();
                             </div>
                         <?php endif; ?>
 
-                        <!-- Registration form with client-side validation -->
+                        <!-- Registrační formulář s validací na straně klienta -->
                         <form id="registrationForm" action="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/register.php" method="post">
-                            <!-- Username field (required) -->
+                            <!-- Pole pro uživatelské jméno (povinné) -->
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     <i class="bi bi-person me-1"></i>Uživatelské jméno <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" id="username" name="username" class="form-control" required>
                             </div>
-                            <!-- Email field (optional) -->
+                            <!-- Pole pro e-mail (nepovinné) -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">
                                     <i class="bi bi-envelope me-1"></i>E-mail (nepovinný)
                                 </label>
                                 <input type="email" id="email" name="email" class="form-control">
                             </div>
-                            <!-- Name and surname fields (optional) -->
+                            <!-- Pole pro jméno a příjmení (nepovinné) -->
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label">
@@ -104,7 +103,7 @@ session_start();
                                     <input type="text" id="surname" name="surname" class="form-control">
                                 </div>
                             </div>
-                            <!-- Password field with strength requirements -->
+                            <!-- Pole pro heslo s požadavky na sílu -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">
                                     <i class="bi bi-key me-1"></i>Heslo <span class="text-danger">*</span>
@@ -116,7 +115,7 @@ session_start();
                                     <i class="bi bi-info-circle me-1"></i>Min. 8 znaků, 1 velké písmeno a 1 číslo
                                 </div>
                             </div>
-                            <!-- Password confirmation field -->
+                            <!-- Pole pro potvrzení hesla -->
                             <div class="mb-4">
                                 <label for="password_confirm" class="form-label">
                                     <i class="bi bi-key-fill me-1"></i>Potvrzení hesla <span class="text-danger">*</span>
@@ -126,13 +125,13 @@ session_start();
                                     <i class="bi bi-exclamation-circle me-1"></i>Hesla se neshodují.
                                 </div>
                             </div>
-                            <!-- Submit button -->
+                            <!-- Tlačítko pro odeslání -->
                             <button type="submit" class="btn btn-primary w-100 py-2">
                                 <i class="bi bi-person-plus me-2"></i>Registrovat se
                             </button>
                         </form>
 
-                        <!-- Login link for existing users -->
+                        <!-- Odkaz na přihlášení pro existující uživatele -->
                         <div class="mt-4 text-center">
                             <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php" class="text-decoration-none">
                                 <i class="bi bi-box-arrow-in-right me-1"></i>Již máte účet? Přihlaste se
@@ -144,18 +143,18 @@ session_start();
         </div>
     </div>
 
-    <!-- Bootstrap JavaScript for interactive components -->
+    <!-- Bootstrap JavaScript pro interaktivní komponenty -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
-    <!-- Client-side password matching validation script -->
+    <!-- Skript pro kontrolu shody hesel na straně klienta -->
     <script>
-        // Get form elements
+        // Získání elementů formuláře
         const form = document.getElementById('registrationForm');
         const password = document.getElementById('password');
         const confirm = document.getElementById('password_confirm');
         const message = document.getElementById('passwordMatchMessage');
 
-        // Add form submit event listener for password validation
+        // Přidání event listeneru pro validaci hesel při odeslání
         form.addEventListener('submit', function (e) {
             if (password.value !== confirm.value) {
                 e.preventDefault();

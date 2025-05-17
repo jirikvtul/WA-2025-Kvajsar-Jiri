@@ -1,7 +1,8 @@
 <?php if (session_status() === PHP_SESSION_NONE) { session_start(); } ?>
+<!-- Hlavní navigační lišta s tmavým pozadím -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <!-- Brand Logo and Link -->
+        <!-- Logo a odkaz na hlavní stránku -->
         <a class="navbar-brand d-flex align-items-center" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/index.php">
             <img src="/WA-2025-Kvajsar-Jiri/Projekt-Web/images/logo.png" 
                  alt="ReComp"
@@ -9,14 +10,14 @@
                  class="d-inline-block align-text-top">
         </a>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Tlačítko pro zobrazení menu na mobilních zařízeních -->
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Collapsible Navigation Content -->
+        <!-- Sbalitelné menu -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Main Navigation Links -->
+            <!-- Hlavní navigační odkazy -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/introduction/introduction.php">Úvod</a>
@@ -35,10 +36,10 @@
                 </li>
             </ul>
 
-            <!-- User Authentication Menu -->
+            <!-- Menu pro přihlášené/nepřihlášené uživatele -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php if (isset($_SESSION['username'])): ?>
-                    <!-- Logged-in User Menu -->
+                    <!-- Menu pro přihlášeného uživatele -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/ArticleController.php">
                             <i class="bi bi-plus-circle me-1"></i>Přidat článek
@@ -49,20 +50,20 @@
                             <i class="bi bi-pencil me-1"></i>Editovat
                         </a>
                     </li>
-                    <!-- Display Username -->
+                    <!-- Zobrazení jména přihlášeného uživatele -->
                     <li class="nav-item">
                         <span class="nav-link px-3 text-white-50">
                             <i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($_SESSION['username']) ?>
                         </span>
                     </li>
-                    <!-- Logout Link -->
+                    <!-- Odkaz pro odhlášení -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/logout.php">
                             <i class="bi bi-box-arrow-right me-1"></i>Odhlásit
                         </a>
                     </li>
                 <?php else: ?>
-                    <!-- Guest User Menu -->
+                    <!-- Menu pro nepřihlášeného uživatele -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php">
                             <i class="bi bi-box-arrow-in-right me-1"></i>Přihlásit

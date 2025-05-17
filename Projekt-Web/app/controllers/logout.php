@@ -1,21 +1,28 @@
 <?php
 /**
- * Logout controller
- * Handles user logout by destroying the session
- * Redirects to article list page after logout
+ * Controller pro odhlášení uživatele
+ * 
+ * Tento controller zpracovává:
+ * - Odhlášení uživatele
+ * - Vymazání session
+ * - Přesměrování na seznam článků
  */
 
+// Nastavení zobrazení chyb pro vývojové prostředí
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Spuštění session
 session_start();
-// Clear all session variables
+
+// Vymazání všech session proměnných
 session_unset();
-// Destroy the session
+
+// Zničení session
 session_destroy();
 
-// Redirect to article list page
+// Přesměrování na seznam článků
 header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_list.php");
 exit();
 ?>

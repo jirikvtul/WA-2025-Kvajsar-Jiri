@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Úvod do stavby PC sestav s důrazem na použité komponenty a udržitelnost.">
     <meta name="author" content="Jiří Kvajsar">
-    <title>Úvod - Sekáčové PC sestavy</title>
+    <title>Úvod | ReComp</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -26,9 +26,9 @@
     </header>
     <!-- Page content-->
     <div class="container">
-        <div class="row g-4">
+        <div class="row justify-content-center">
             <!-- Main content-->
-            <div class="col-lg-8">
+            <div class="col-lg-10">
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
                         <h2 class="card-title h3 mb-4">Vlastní PC sestavy a výhody použitých komponent</h2>
@@ -62,45 +62,12 @@
                     </div>
                 </div>
             </div>
-            <!-- Side widgets-->
-            <div class="col-lg-4">
-                <!-- Categories widget-->
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">Kategorie</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><a href="../introduction/introduction.php" class="text-decoration-none">Úvod</a></li>
-                                    <li class="mb-2"><a href="../compatibility/compatibility.php" class="text-decoration-none">Kompatibilita</a></li>
-                                    <li class="mb-2"><a href="../purchasing/purchasing.php" class="text-decoration-none">Nákup</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><a href="../usefulwebsites/usefulwebsites.php" class="text-decoration-none">Užitečné odkazy</a></li>
-                                    <li class="mb-2"><a href="../index.php" class="text-decoration-none">Blog</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Side widget-->
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">O blogu</div>
-                    <div class="card-body">
-                        <p class="card-text">Sekáčové PC sestavy je blog o stavbě cenově dostupných počítačů s důrazem na použité komponenty a udržitelnost.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <!-- Footer-->
-    <footer class="py-4 bg-dark mt-5">
-        <div class="container">
-            <p class="m-0 text-center text-white">&copy; Sekáčové PC sestavy 2025</p>
-        </div>
-    </footer>
+
+    <!-- Include the footer -->
+    <?php include '../app/views/articles/footer.php'; ?>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>

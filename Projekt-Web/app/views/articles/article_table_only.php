@@ -1,23 +1,23 @@
 <?php
-// Start session if not already started
+// Spuštění session, pokud ještě není spuštěna
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
-<!-- Article Table Container -->
+<!-- Kontejner s tabulkou článků -->
 <div class="container mt-5">
     <div class="card shadow-sm">
-        <!-- Table header -->
+        <!-- Hlavička tabulky -->
         <div class="card-header bg-primary text-white py-3">
             <h2 class="h3 mb-0"><i class="bi bi-list-ul me-2"></i>Seznam článků</h2>
         </div>
-        <!-- Table body -->
+        <!-- Tělo tabulky -->
         <div class="card-body p-4">
             <?php if (!empty($articles)): ?>
-                <!-- Responsive table wrapper -->
+                <!-- Responzivní obal tabulky -->
                 <div class="table-responsive">
                     <table class="table table-hover align-middle">
-                        <!-- Table header with column titles -->
+                        <!-- Hlavička tabulky s názvy sloupců -->
                         <thead class="table-light">
                             <tr>
                                 <th><i class="bi bi-type-h1 me-1"></i>Název</th>
@@ -26,17 +26,17 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <th><i class="bi bi-calendar me-1"></i>Vytvořeno</th>
                             </tr>
                         </thead>
-                        <!-- Table body with article data -->
+                        <!-- Tělo tabulky s daty článků -->
                         <tbody>
                             <?php foreach ($articles as $article): ?>
                                 <tr>
-                                    <!-- Article title -->
+                                    <!-- Název článku -->
                                     <td class="fw-medium"><?= htmlspecialchars($article['title']) ?></td>
-                                    <!-- Truncated article content (first 100 characters) -->
+                                    <!-- Omezený obsah článku (prvních 100 znaků) -->
                                     <td class="text-muted"><?= htmlspecialchars(substr($article['content'], 0, 100)) . (strlen($article['content']) > 100 ? '...' : '') ?></td>
-                                    <!-- Author badge -->
+                                    <!-- Odznak autora -->
                                     <td><span class="badge bg-secondary"><?= htmlspecialchars($article['username']) ?></span></td>
-                                    <!-- Creation date -->
+                                    <!-- Datum vytvoření -->
                                     <td><small class="text-muted"><?= htmlspecialchars($article['created_at']) ?></small></td>
                                 </tr>
                             <?php endforeach; ?>
@@ -44,7 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     </table>
                 </div>
             <?php else: ?>
-                <!-- Message displayed when no articles are found -->
+                <!-- Zpráva zobrazená, když nejsou nalezeny žádné články -->
                 <div class="alert alert-info d-flex align-items-center" role="alert">
                     <i class="bi bi-info-circle-fill me-2"></i>
                     <div>Žádný článek nebyl nalezen.</div>
