@@ -9,11 +9,6 @@
  * - Přesměrování po přihlášení
  */
 
-// Nastavení zobrazení chyb pro vývojové prostředí
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Načtení potřebných modelů
 require_once '../models/Database.php';
 require_once '../models/User.php';
@@ -41,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($userModel->login($username, $password)) {
         // Úspěšné přihlášení - nastavení session
         $_SESSION['username'] = $username;
-        // Přesměrování na seznam článků
-        header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_list.php");
+        // Přesměrování na homepage
+        header("Location: ../../index.php");
         exit();
     } else {
         // Neúspěšné přihlášení

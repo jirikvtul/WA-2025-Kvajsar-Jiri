@@ -49,7 +49,7 @@ if(!isset($_SESSION))
                     <h2 class="h3 mb-0"><i class="bi bi-list-ul me-2"></i>Seznam článků</h2>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <!-- Tlačítko pro nový článek - viditelné pouze pro přihlášené uživatele -->
-                        <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/articles/article_create.php" class="btn btn-light btn-sm">
+                        <a href="article_create.php" class="btn btn-light btn-sm">
                             <i class="bi bi-plus-circle me-1"></i>Nový článek
                         </a>
                     <?php endif; ?>

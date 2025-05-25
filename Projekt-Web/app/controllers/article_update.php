@@ -9,11 +9,6 @@
  * - Přesměrování po aktualizaci
  */
 
-// Nastavení zobrazení chyb pro vývojové prostředí
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Načtení potřebných modelů
 require_once '../models/Database.php';
 require_once '../models/Article.php';
@@ -23,7 +18,7 @@ session_start();
 
 // Kontrola přihlášení uživatele
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php?error=please_login");
+    header("Location: ../views/auth/login.php?error=please_login");
     exit();
 }
 
@@ -49,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Pokus o aktualizaci článku
     if ($articleModel->update($id, $title, $content, $user_id, $user_role)) {
         // Úspěšná aktualizace - přesměrování na seznam článků
-        header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_list.php");
+        header("Location: article_list.php");
         exit();
     } else {
         // Neúspěšná aktualizace - nedostatečná oprávnění

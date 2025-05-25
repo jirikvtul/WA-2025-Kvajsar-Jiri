@@ -42,36 +42,36 @@
                     <!-- Menu pro přihlášeného uživatele -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/ArticleController.php">
-                            <i class="bi bi-plus-circle me-1"></i>Přidat článek
+                            Přidat článek
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/articles/article_edit_delete.php">
-                            <i class="bi bi-pencil me-1"></i>Editovat
+                            Editovat
                         </a>
                     </li>
                     <!-- Zobrazení jména přihlášeného uživatele -->
                     <li class="nav-item">
                         <span class="nav-link px-3 text-white-50">
-                            <i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($_SESSION['username']) ?>
+                            <?= htmlspecialchars($_SESSION['username']) ?>
                         </span>
                     </li>
                     <!-- Odkaz pro odhlášení -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/logout.php">
-                            <i class="bi bi-box-arrow-right me-1"></i>Odhlásit
+                            Odhlásit
                         </a>
                     </li>
                 <?php else: ?>
                     <!-- Menu pro nepřihlášeného uživatele -->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php">
-                            <i class="bi bi-box-arrow-in-right me-1"></i>Přihlásit
+                            Přihlásit
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-3" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/register.php">
-                            <i class="bi bi-person-plus me-1"></i>Registrace
+                            Registrace
                         </a>
                     </li>
                 <?php endif; ?>

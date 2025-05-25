@@ -1,13 +1,9 @@
 <?php
-// Nastavení zobrazení chyb pro vývojové prostředí
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 // Spuštění session a načtení potřebných modelů
 session_start();
-require_once '../models/Database.php';
-require_once '../models/Article.php';
+require_once __DIR__ . '/../models/Database.php';
+require_once __DIR__ . '/../models/Article.php';
 
 /**
  * Controller pro správu článků
@@ -54,7 +50,7 @@ class ArticleController {
     public function createArticle() {
         // Kontrola přihlášení
         if (!$this->isUserLoggedIn()) {
-            header("Location: ../views/auth/login.php?error=please_login");
+            header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php?error=please_login");
             exit();
         }
 
@@ -70,7 +66,7 @@ class ArticleController {
                 $error = 'Vyplňte prosím všechna povinná pole.';
             } elseif ($this->articleModel->create($title, $content, $user_id)) {
                 // Úspěšné vytvoření článku
-                header("Location: ../controllers/article_list.php?success=created");
+                header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/community/community.php?success=created");
                 exit();
             } else {
                 $error = 'Chyba při ukládání článku.';
@@ -78,7 +74,7 @@ class ArticleController {
         }
 
         // Zobrazení formuláře pro vytvoření článku
-        include '../views/articles/article_create.php';
+        include __DIR__ . '/../views/articles/article_create.php';
     }
 
     /**
@@ -92,12 +88,12 @@ class ArticleController {
     public function listArticles() {
         // Kontrola přihlášení
         if (!$this->isUserLoggedIn()) {
-            header("Location: ../views/auth/login.php?error=please_login");
+            header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php?error=please_login");
             exit();
         }
         // Načtení a zobrazení článků
         $articles = $this->articleModel->getAll();
-        include '../views/articles/article_table_only.php';
+        include __DIR__ . '/../views/articles/article_table_only.php';
     }
 }
 

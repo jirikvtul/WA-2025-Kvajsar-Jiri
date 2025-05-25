@@ -86,14 +86,23 @@ class Article {
      * @return bool True při úspěšné aktualizaci
      */
     public function update($id, $title, $content, $user_id, $user_role) {
-        // Kontrola oprávnění uživatele
+        // BEZPEČNOSTNÍ KONTROLA 1: Ověření oprávnění uživatele
+        // Toto zabraňuje manipulaci s URL kontrolou, zda má uživatel právo na úpravu
         if ($user_role !== 'admin') {
+            // BEZPEČNOSTNÍ KONTROLA 2: Získání článku a ověření vlastnictví
+            // Toto zajišťuje, že článek existuje a patří aktuálnímu uživateli
             $article = $this->getById($id);
             if (!$article || $article['user_id'] !== $user_id) {
+                // Pokud některá z kontrol selže, přístup je zamítnut
+                // Toto zabraňuje:
+                // 1. Úpravě neexistujících článků
+                // 2. Úpravě článků patřících jiným uživatelům
+                // 3. Pokusům o manipulaci s URL pro přístup k článkům jiných uživatelů
                 return false;
             }
         }
 
+        // BEZPEČNOSTNÍ KONTROLA 3: Použití prepared statements pro prevenci SQL injection
         $sql = "UPDATE articles 
                 SET title = :title,
                     content = :content,
@@ -120,14 +129,23 @@ class Article {
      * @return bool True při úspěšném smazání
      */
     public function delete($id, $user_id, $user_role) {
-        // Kontrola oprávnění uživatele
+        // BEZPEČNOSTNÍ KONTROLA 1: Ověření oprávnění uživatele
+        // Toto zabraňuje manipulaci s URL kontrolou, zda má uživatel právo na smazání
         if ($user_role !== 'admin') {
+            // BEZPEČNOSTNÍ KONTROLA 2: Získání článku a ověření vlastnictví
+            // Toto zajišťuje, že článek existuje a patří aktuálnímu uživateli
             $article = $this->getById($id);
             if (!$article || $article['user_id'] !== $user_id) {
+                // Pokud některá z kontrol selže, přístup je zamítnut
+                // Toto zabraňuje:
+                // 1. Mazání neexistujících článků
+                // 2. Mazání článků patřících jiným uživatelům
+                // 3. Pokusům o manipulaci s URL pro mazání článků jiných uživatelů
                 return false;
             }
         }
 
+        // BEZPEČNOSTNÍ KONTROLA 3: Použití prepared statements pro prevenci SQL injection
         $sql = "DELETE FROM articles WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([':id' => $id]);

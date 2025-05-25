@@ -8,11 +8,6 @@
  * - Přesměrování na seznam článků
  */
 
-// Nastavení zobrazení chyb pro vývojové prostředí
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Spuštění session
 session_start();
 
@@ -23,6 +18,6 @@ session_unset();
 session_destroy();
 
 // Přesměrování na seznam článků
-header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_list.php");
+header("Location: ../../index.php");
 exit();
 ?>

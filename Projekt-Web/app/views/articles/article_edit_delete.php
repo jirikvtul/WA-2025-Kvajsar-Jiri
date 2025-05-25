@@ -50,11 +50,9 @@ if (isset($_GET['edit'])) {
     <title>Správa článků | ReComp</title>
     
     <!-- Favicon a externí zdroje -->
-    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
     <!-- Bootstrap CSS pro stylování -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- Bootstrap Icons pro UI prvky -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light min-vh-100 d-flex flex-column">
     <!-- Načtení navigačního menu -->
@@ -70,7 +68,7 @@ if (isset($_GET['edit'])) {
                         <!-- Hlavička formuláře -->
                         <div class="card-header bg-primary text-white text-center py-3">
                             <h2 class="h3 mb-0">
-                                <i class="bi bi-pencil-square me-2"></i>Upravit článek: <?= htmlspecialchars($articleToEdit['title']) ?>
+                                Upravit článek: <?= htmlspecialchars($articleToEdit['title']) ?>
                             </h2>
                         </div>
                         <!-- Tělo formuláře -->
@@ -82,7 +80,7 @@ if (isset($_GET['edit'])) {
                                 <!-- Zobrazení ID článku (zakázáno pro úpravu) -->
                                 <div class="mb-4">
                                     <label class="form-label">
-                                        <i class="bi bi-hash me-1"></i>ID článku
+                                        ID článku
                                     </label>
                                     <input type="text" class="form-control" value="<?= $articleToEdit['id'] ?>" disabled>
                                 </div>
@@ -90,7 +88,7 @@ if (isset($_GET['edit'])) {
                                 <!-- Pole pro název článku -->
                                 <div class="mb-4">
                                     <label for="title" class="form-label">
-                                        <i class="bi bi-pencil-square me-1"></i>Název článku
+                                        Název článku
                                     </label>
                                     <input type="text" id="title" name="title" class="form-control" required value="<?= htmlspecialchars($articleToEdit['title']) ?>">
                                 </div>
@@ -98,14 +96,14 @@ if (isset($_GET['edit'])) {
                                 <!-- Pole pro obsah článku -->
                                 <div class="mb-4">
                                     <label for="content" class="form-label">
-                                        <i class="bi bi-text-paragraph me-1"></i>Obsah
+                                        Obsah
                                     </label>
                                     <textarea id="content" name="content" class="form-control" rows="8" required><?= htmlspecialchars($articleToEdit['content']) ?></textarea>
                                 </div>
                                 
                                 <!-- Tlačítko pro uložení změn -->
                                 <button type="submit" class="btn btn-primary w-100 py-2">
-                                    <i class="bi bi-save me-2"></i>Uložit změny
+                                    Uložit změny
                                 </button>
                             </form>
                         </div>
@@ -119,9 +117,9 @@ if (isset($_GET['edit'])) {
             <!-- Hlavička seznamu s tlačítkem pro nový článek -->
             <div class="card-header bg-primary text-white py-3">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="h3 mb-0"><i class="bi bi-list-ul me-2"></i>Seznam článků</h2>
+                    <h2 class="h3 mb-0">Seznam článků</h2>
                     <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/articles/article_create.php" class="btn btn-light btn-sm">
-                        <i class="bi bi-plus-circle me-1"></i>Nový článek
+                        Nový článek
                     </a>
                 </div>
             </div>
@@ -134,12 +132,12 @@ if (isset($_GET['edit'])) {
                             <!-- Hlavička tabulky -->
                             <thead class="table-light">
                                 <tr>
-                                    <th><i class="bi bi-hash me-1"></i>ID</th>
-                                    <th><i class="bi bi-pencil-square me-1"></i>Název</th>
-                                    <th><i class="bi bi-text-paragraph me-1"></i>Obsah</th>
-                                    <th><i class="bi bi-person me-1"></i>Autor</th>
-                                    <th><i class="bi bi-calendar me-1"></i>Vytvořeno</th>
-                                    <th><i class="bi bi-gear me-1"></i>Akce</th>
+                                    <th>ID</th>
+                                    <th>Název</th>
+                                    <th>Obsah</th>
+                                    <th>Autor</th>
+                                    <th>Vytvořeno</th>
+                                    <th>Akce</th>
                                 </tr>
                             </thead>
                             <!-- Tělo tabulky -->
@@ -162,13 +160,13 @@ if (isset($_GET['edit'])) {
                                                 <div class="btn-group btn-group-sm">
                                                     <!-- Tlačítko pro úpravu -->
                                                     <a href="?edit=<?= $article['id'] ?>" class="btn btn-outline-primary">
-                                                        <i class="bi bi-pencil"></i>
+                                                        Upravit
                                                     </a>
                                                     <!-- Tlačítko pro smazání s potvrzením -->
                                                     <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_delete.php?id=<?= $article['id'] ?>" 
                                                        class="btn btn-outline-danger"
                                                        onclick="return confirm('Opravdu chcete smazat tento článek?');">
-                                                        <i class="bi bi-trash"></i>
+                                                        Smazat
                                                     </a>
                                                 </div>
                                             <?php endif; ?>
@@ -181,7 +179,6 @@ if (isset($_GET['edit'])) {
                 <?php else: ?>
                     <!-- Zpráva, když nejsou nalezeny žádné články -->
                     <div class="alert alert-info d-flex align-items-center" role="alert">
-                        <i class="bi bi-info-circle-fill me-2"></i>
                         <div>Žádný článek nebyl nalezen.</div>
                     </div>
                 <?php endif; ?>

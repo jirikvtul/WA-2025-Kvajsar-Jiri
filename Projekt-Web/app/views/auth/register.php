@@ -28,8 +28,6 @@ session_start();
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
     <!-- Bootstrap CSS pro stylování -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- Bootstrap Icons pro UI prvky -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <!-- Zahrnutí navigační lišty -->
@@ -43,14 +41,13 @@ session_start();
                 <div class="card shadow-sm">
                     <!-- Hlavička formuláře -->
                     <div class="card-header bg-primary text-white text-center py-3">
-                        <h2 class="h3 mb-0"><i class="bi bi-person-plus me-2"></i>Registrace</h2>
+                        <h2 class="h3 mb-0">Registrace</h2>
                     </div>
                     <!-- Tělo formuláře -->
                     <div class="card-body p-4">
                         <!-- Zobrazení chybových hlášek podle typu chyby -->
                         <?php if (isset($_GET['error'])): ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
                                 <div>
                                     <?php
                                     // Zpracování chybových hlášek podle typu chyby
@@ -73,18 +70,18 @@ session_start();
                         <?php endif; ?>
 
                         <!-- Registrační formulář s validací na straně klienta -->
-                        <form id="registrationForm" action="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/register.php" method="post">
+                        <form id="registrationForm" action="../../controllers/register.php" method="post">
                             <!-- Pole pro uživatelské jméno (povinné) -->
                             <div class="mb-3">
                                 <label for="username" class="form-label">
-                                    <i class="bi bi-person me-1"></i>Uživatelské jméno <span class="text-danger">*</span>
+                                    Uživatelské jméno <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" id="username" name="username" class="form-control" required>
                             </div>
                             <!-- Pole pro e-mail (nepovinné) -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">
-                                    <i class="bi bi-envelope me-1"></i>E-mail (nepovinný)
+                                    E-mail (nepovinný)
                                 </label>
                                 <input type="email" id="email" name="email" class="form-control">
                             </div>
@@ -92,13 +89,13 @@ session_start();
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label">
-                                        <i class="bi bi-person-badge me-1"></i>Jméno (nepovinné)
+                                        Jméno (nepovinné)
                                     </label>
                                     <input type="text" id="name" name="name" class="form-control">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="surname" class="form-label">
-                                        <i class="bi bi-person-badge me-1"></i>Příjmení (nepovinné)
+                                        Příjmení (nepovinné)
                                     </label>
                                     <input type="text" id="surname" name="surname" class="form-control">
                                 </div>
@@ -106,35 +103,35 @@ session_start();
                             <!-- Pole pro heslo s požadavky na sílu -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">
-                                    <i class="bi bi-key me-1"></i>Heslo <span class="text-danger">*</span>
+                                    Heslo <span class="text-danger">*</span>
                                 </label>
                                 <input type="password" id="password" name="password" class="form-control"
                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
                                        title="Min. 8 znaků, 1 velké písmeno a 1 číslo" required>
                                 <div class="form-text">
-                                    <i class="bi bi-info-circle me-1"></i>Min. 8 znaků, 1 velké písmeno a 1 číslo
+                                    Min. 8 znaků, 1 velké písmeno a 1 číslo
                                 </div>
                             </div>
                             <!-- Pole pro potvrzení hesla -->
                             <div class="mb-4">
                                 <label for="password_confirm" class="form-label">
-                                    <i class="bi bi-key-fill me-1"></i>Potvrzení hesla <span class="text-danger">*</span>
+                                    Potvrzení hesla <span class="text-danger">*</span>
                                 </label>
                                 <input type="password" id="password_confirm" name="password_confirm" class="form-control" required>
                                 <div id="passwordMatchMessage" class="form-text text-danger d-none">
-                                    <i class="bi bi-exclamation-circle me-1"></i>Hesla se neshodují.
+                                    Hesla se neshodují.
                                 </div>
                             </div>
                             <!-- Tlačítko pro odeslání -->
                             <button type="submit" class="btn btn-primary w-100 py-2">
-                                <i class="bi bi-person-plus me-2"></i>Registrovat se
+                                Registrovat se
                             </button>
                         </form>
 
                         <!-- Odkaz na přihlášení pro existující uživatele -->
                         <div class="mt-4 text-center">
-                            <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php" class="text-decoration-none">
-                                <i class="bi bi-box-arrow-in-right me-1"></i>Již máte účet? Přihlaste se
+                            <a href="login.php" class="text-decoration-none">
+                                Již máte účet? Přihlaste se
                             </a>
                         </div>
                     </div>

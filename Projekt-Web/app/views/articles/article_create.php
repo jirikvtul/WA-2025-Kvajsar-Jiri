@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Přesměrování nepřihlášených uživatelů na seznam článků
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/article_list.php");
+    header("Location: ../../controllers/article_list.php");
     exit();
 }
 ?>
@@ -25,8 +25,6 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
     <!-- Bootstrap CSS pro stylování -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- Bootstrap Icons pro UI prvky -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <!-- Načtení navigačního menu -->
@@ -40,7 +38,7 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="card shadow-sm">
                     <!-- Hlavička karty s nadpisem -->
                     <div class="card-header bg-primary text-white text-center py-3">
-                        <h2 class="h3 mb-0"><i class="bi bi-plus-circle me-2"></i>Přidat nový článek</h2>
+                        <h2 class="h3 mb-0">Přidat nový článek</h2>
                     </div>
                     <!-- Tělo karty obsahující formulář -->
                     <div class="card-body p-4">
@@ -49,20 +47,20 @@ if (!isset($_SESSION['user_id'])) {
                             <!-- Pole pro název článku -->
                             <div class="mb-4">
                                 <label for="title" class="form-label">
-                                    <i class="bi bi-pencil-square me-1"></i>Název článku <span class="text-danger">*</span>
+                                    Název článku <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" id="title" name="title" class="form-control" required>
                             </div>
                             <!-- Pole pro obsah článku -->
                             <div class="mb-4">
                                 <label for="content" class="form-label">
-                                    <i class="bi bi-text-paragraph me-1"></i>Obsah <span class="text-danger">*</span>
+                                    Obsah <span class="text-danger">*</span>
                                 </label>
                                 <textarea id="content" name="content" class="form-control" rows="8" required></textarea>
                             </div>
                             <!-- Tlačítko pro odeslání formuláře -->
                             <button type="submit" class="btn btn-primary w-100 py-2">
-                                <i class="bi bi-save me-2"></i>Uložit článek
+                                Uložit článek
                             </button>
                         </form>
                     </div>

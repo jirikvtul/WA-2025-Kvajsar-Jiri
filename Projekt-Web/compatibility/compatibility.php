@@ -8,7 +8,6 @@
     <title>Kompatibilita | ReComp</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <?php include '../app/views/articles/navbar.php'; ?>
@@ -29,13 +28,13 @@
                         <div class="card-text">
                             <p class="mb-4">Každá PC sestava se skládá minimálně ze 7 komponent, bez kterých není možné počítač zprovoznit:</p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="bi bi-cpu me-2"></i><strong>CPU</strong> (procesor)</li>
-                                <li><i class="bi bi-motherboard me-2"></i><strong>MOBO</strong> (základní deska)</li>
-                                <li><i class="bi bi-gpu-card me-2"></i><strong>GPU</strong> (grafická karta)</li>
-                                <li><i class="bi bi-memory me-2"></i><strong>RAM</strong> (operační paměť)</li>
-                                <li><i class="bi bi-hdd me-2"></i><strong>SSD/HDD</strong> (úložiště)</li>
-                                <li><i class="bi bi-lightning-charge me-2"></i><strong>PSU</strong> (zdroj)</li>
-                                <li><i class="bi bi-pc-display me-2"></i><strong>PC Case</strong> (skříň)</li>
+                                <li><strong>CPU</strong> (procesor)</li>
+                                <li><strong>MOBO</strong> (základní deska)</li>
+                                <li><strong>GPU</strong> (grafická karta)</li>
+                                <li><strong>RAM</strong> (operační paměť)</li>
+                                <li><strong>SSD/HDD</strong> (úložiště)</li>
+                                <li><strong>PSU</strong> (zdroj)</li>
+                                <li><strong>PC Case</strong> (skříň)</li>
                             </ul>
 
                             <h3 class="h4 mb-3">Procesor a základní deska</h3>

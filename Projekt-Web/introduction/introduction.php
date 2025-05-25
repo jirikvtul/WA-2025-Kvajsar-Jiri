@@ -10,7 +10,6 @@
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <!-- Responsive navbar-->
@@ -36,7 +35,6 @@
                             <p class="mb-4">Stavba vlastního počítače je dnes dostupnější než kdy dříve. Díky online tutoriálům, videím na YouTube a nástrojům jako <a href="https://www.alza.cz/pc-konfigurator" target="_blank" class="text-decoration-none">Alza PC konfigurátor</a>/<a href="https://pcpartpicker.com" target="_blank" class="text-decoration-none">PCPartPicker</a> zvládne sestavit PC i začátečník. Ekonomická situace však zvyšuje ceny nových komponent – například kvůli inflaci a přetrvávajícímu nedostatku čipů. Výsledkem je, že nová výkonná PC sestava je pro mnohé, zejména studenty, finančně nedostupná. Řešením může být využití použitých komponent, které výrazně snižují náklady a přispívají k udržitelnosti tím, že omezují e-waste.</p>
                             
                             <div class="alert alert-info mb-4">
-                                <i class="bi bi-info-circle-fill me-2"></i>
                                 <strong>Tip:</strong> Použité komponenty mohou ušetřit až 50% nákladů oproti novým součástkám.
                             </div>
 

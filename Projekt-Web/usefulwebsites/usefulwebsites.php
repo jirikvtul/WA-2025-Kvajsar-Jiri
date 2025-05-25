@@ -8,7 +8,6 @@
     <title>Užitečné odkazy | ReComp</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <?php include '../app/views/articles/navbar.php'; ?>
@@ -35,7 +34,6 @@
                             <p class="mb-4">Pokud by se někdo trošku cítil je dobré použít program na instalační média například <a href="https://rufus.ie" target="_blank" class="text-decoration-none">Rufus</a>, kde si lze modifikovat instalační ISO, v případě Windowsu lze například vypnout požadavek na připojení k Microsoft účtu, nebo přeskočit TPM 2.0 požadavek hardwaru.</p>
 
                             <div class="alert alert-info mb-4">
-                                <i class="bi bi-info-circle me-2"></i>
                                 Pro testování zakoupeného hardwaru je skvělý <a href="https://www.maxon.net/en/cinebench" target="_blank" class="text-decoration-none">CineBench</a> nebo <a href="https://www.guru3d.com/files-details/prime95-download.html" target="_blank" class="text-decoration-none">Prime95</a> pro CPU a <a href="https://www.3dmark.com" target="_blank" class="text-decoration-none">3DMark</a> pro GPU, to jsou takové zlaté standardy. Ovšem SpyMark je za poplatek pro takové obyčejné testování se používá například <a href="https://benchmark.unigine.com/heaven" target="_blank" class="text-decoration-none">Heaven's Benchmark</a>, ale ten už je relativně dost zastaralý, ovšem pro základní stabilitu poslouží.
                             </div>
                         </div>

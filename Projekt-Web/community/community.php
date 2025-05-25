@@ -1,21 +1,29 @@
 <?php
+// Povolení zobrazení chyb pro vývoj
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 /**
- * Community page
- * Displays all articles in a card-based layout
- * Allows users to view full article content and comments in expandable sections
+ * Komunitní stránka
+ * 
+ * Funkce:
+ * - Zobrazuje všechny články v kartách
+ * - Umožňuje přidávání komentářů
+ * - Zobrazuje komentáře v rozbalovacích sekcích
+ * - Kontroluje přihlášení uživatelů
  */
 
-// Initialize session if not already started
+// Inicializace session, pokud ještě není spuštěna
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Load database connection and Article model
+// Načtení potřebných modelů pro práci s databází
 require_once __DIR__ . '/../app/models/Database.php';
 require_once __DIR__ . '/../app/models/Article.php';
 require_once __DIR__ . '/../app/models/Comment.php';
 
-// Fetch all articles from the database
+// Načtení článků z databáze
 try {
     $db = (new Database())->getConnection();
     $articleModel = new Article($db);
@@ -28,21 +36,21 @@ try {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <!-- Meta tags for SEO and responsive design -->
+    <!-- Meta tagy pro SEO a responzivní design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Komunitní sekce pro sdílení zkušeností a diskuzi o PC sestavách.">
     <meta name="author" content="Jiří Kvajsar">
     <title>Komunita | ReComp</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-    <!-- External CSS dependencies -->
+    <link rel="icon" type="image/x-icon" href="/WA-2025-Kvajsar-Jiri/Projekt-Web/assets/favicon.ico">
+    <!-- Externí CSS závislosti -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
-    <?php include '../app/views/articles/navbar.php'; ?>
+    <!-- Načtení navigačního menu -->
+    <?php include __DIR__ . '/../app/views/articles/navbar.php'; ?>
 
-    <!-- Page header -->
+    <!-- Hlavička stránky -->
     <header class="py-5 bg-warning border-bottom mb-4">
         <div class="container">
             <div class="text-center my-5">
@@ -52,7 +60,7 @@ try {
         </div>
     </header>
 
-    <!-- Main content container -->
+    <!-- Hlavní kontejner s obsahem -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -61,99 +69,93 @@ try {
                         <h2 class="card-title h3 mb-4">Komunita</h2>
                         <div class="card-text">
                             <?php if (isset($error)): ?>
-                                <!-- Error message display -->
+                                <!-- Zobrazení chybové hlášky -->
                                 <div class="alert alert-danger" role="alert">
-                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
                                     <?= htmlspecialchars($error) ?>
                                 </div>
                             <?php endif; ?>
 
-                            <?php if (empty($articles)): ?>
-                                <!-- No articles message -->
-                                <div class="alert alert-info" role="alert">
-                                    <i class="bi bi-info-circle-fill me-2"></i>
-                                    Zatím zde nejsou žádné příspěvky.
-                                </div>
-                            <?php else: ?>
-                                <!-- Articles grid -->
-                                <div class="row">
-                                    <?php foreach ($articles as $article): 
-                                        // Get comments for this article
-                                        $commentModel = new Comment($db);
-                                        $comments = $commentModel->getCommentsByArticle($article['id']);
-                                    ?>
-                                        <!-- Article card -->
-                                        <div class="col-12 mb-4">
-                                            <div class="card shadow-sm">
-                                                <!-- Card header with title and author -->
-                                                <div class="card-header bg-primary text-white">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <h5 class="card-title mb-0">
-                                                            <i class="bi bi-pencil-square me-2"></i>
-                                                            <?= htmlspecialchars($article['title']) ?>
-                                                        </h5>
-                                                        <small>
-                                                            <i class="bi bi-person-circle me-1"></i>
-                                                            <?= htmlspecialchars($article['username']) ?>
-                                                        </small>
-                                                    </div>
+                            <!-- Mřížka článků -->
+                            <div class="row">
+                                <?php foreach ($articles as $article): 
+                                    // Načtení komentářů pro aktuální článek
+                                    $commentModel = new Comment($db);
+                                    $comments = $commentModel->getCommentsByArticle($article['id']);
+                                ?>
+                                    <!-- Karta článku -->
+                                    <div class="col-12 mb-4">
+                                        <div class="card shadow-sm">
+                                            <!-- Hlavička karty s názvem a autorem -->
+                                            <div class="card-header bg-primary text-white">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title mb-0">
+                                                        <?= htmlspecialchars($article['title']) ?>
+                                                    </h5>
+                                                    <small>
+                                                        <?= htmlspecialchars($article['username']) ?>
+                                                    </small>
                                                 </div>
-                                                <!-- Card body with article content -->
-                                                <div class="card-body">
-                                                    <p class="card-text">
-                                                        <?= nl2br(htmlspecialchars($article['content'])) ?>
-                                                    </p>
-                                                    
-                                                    <!-- Comments button -->
-                                                    <button class="btn btn-outline-secondary btn-sm" 
-                                                            type="button" 
-                                                            data-bs-toggle="collapse" 
-                                                            data-bs-target="#comments<?= $article['id'] ?>" 
-                                                            aria-expanded="false" 
-                                                            aria-controls="comments<?= $article['id'] ?>">
-                                                        <i class="bi bi-chat me-1"></i>Komentáře
-                                                        <?php if (count($comments) > 0): ?>
-                                                            <span class="badge bg-secondary ms-1"><?= count($comments) ?></span>
-                                                        <?php endif; ?>
-                                                    </button>
+                                            </div>
+                                            <!-- Tělo karty s obsahem článku -->
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    <?= nl2br(htmlspecialchars($article['content'])) ?>
+                                                </p>
+                                                
+                                                <!-- Tlačítko pro zobrazení komentářů -->
+                                                <button class="btn btn-outline-secondary btn-sm" 
+                                                        type="button" 
+                                                        data-bs-toggle="collapse" 
+                                                        data-bs-target="#comments<?= $article['id'] ?>" 
+                                                        aria-expanded="false" 
+                                                        aria-controls="comments<?= $article['id'] ?>">
+                                                    Komentáře
+                                                    <?php if (count($comments) > 0): ?>
+                                                        <span class="badge bg-secondary ms-1"><?= count($comments) ?></span>
+                                                    <?php endif; ?>
+                                                </button>
 
-                                                    <!-- Comments section -->
-                                                    <div class="collapse mt-3" id="comments<?= $article['id'] ?>">
-                                                        <?php if (isset($_SESSION['user_id'])): ?>
-                                                            <form action="../app/controllers/add_comment.php" method="POST" class="mb-3">
-                                                                <input type="hidden" name="article_id" value="<?= $article['id'] ?>">
-                                                                <div class="form-group">
-                                                                    <textarea name="content" class="form-control" rows="2" placeholder="Napište svůj komentář..." required></textarea>
-                                                                </div>
-                                                                <button type="submit" class="btn btn-primary btn-sm mt-2">Přidat komentář</button>
-                                                            </form>
-                                                        <?php else: ?>
-                                                            <div class="alert alert-info py-2 mb-3">
-                                                                Pro přidání komentáře se prosím <a href="../app/views/auth/login.php">přihlaste</a>.
+                                                <!-- Sekce komentářů -->
+                                                <div class="collapse mt-3" id="comments<?= $article['id'] ?>">
+                                                    <?php if (isset($_SESSION['user_id'])): ?>
+                                                        <!-- Formulář pro přidání komentáře (pouze pro přihlášené uživatele) -->
+                                                        <form action="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/controllers/add_comment.php" method="POST" class="mb-3">
+                                                            <input type="hidden" name="article_id" value="<?= $article['id'] ?>">
+                                                            <div class="form-group">
+                                                                <textarea name="content" class="form-control" rows="2" placeholder="Napište svůj komentář..." required></textarea>
                                                             </div>
-                                                        <?php endif; ?>
-
-                                                        <div class="comments-list">
-                                                            <?php foreach ($comments as $comment): ?>
-                                                                <div class="comment card mb-2">
-                                                                    <div class="card-body py-2">
-                                                                        <div class="d-flex justify-content-between align-items-center">
-                                                                            <h6 class="card-subtitle mb-1 text-muted small">
-                                                                                <?= htmlspecialchars($comment['username']) ?>
-                                                                            </h6>
-                                                                        </div>
-                                                                        <p class="card-text small mb-0"><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
-                                                                    </div>
-                                                                </div>
-                                                            <?php endforeach; ?>
+                                                            <button type="submit" class="btn btn-primary btn-sm mt-2">Přidat komentář</button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <!-- Zpráva pro nepřihlášené uživatele -->
+                                                        <div class="alert alert-info py-2 mb-3">
+                                                            Pro přidání komentáře se prosím <a href="/WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php">přihlaste</a>.
                                                         </div>
+                                                    <?php endif; ?>
+
+                                                    <!-- Seznam komentářů -->
+                                                    <div class="comments-list">
+                                                        <?php foreach ($comments as $comment): ?>
+                                                            <!-- Karta jednotlivého komentáře -->
+                                                            <div class="comment card mb-2">
+                                                                <div class="card-body py-2">
+                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                        <h6 class="card-subtitle mb-1 text-muted small">
+                                                                            <?= htmlspecialchars($comment['username']) ?>
+                                                                        </h6>
+                                                                    </div>
+                                                                    <!-- nl2br() převádí odřádkování v textu na HTML <br> tagy -->
+                                                                    <p class="card-text small mb-0"><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
+                                                                </div>
+                                                            </div>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -161,9 +163,10 @@ try {
         </div>
     </div>
 
-    <!-- Include the footer -->
-    <?php include '../app/views/articles/footer.php'; ?>
+    <!-- Načtení patičky -->
+    <?php include __DIR__ . '/../app/views/articles/footer.php'; ?>
 
+    <!-- Bootstrap JavaScript pro interaktivní komponenty -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>

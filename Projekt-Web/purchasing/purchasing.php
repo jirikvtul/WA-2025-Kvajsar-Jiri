@@ -8,7 +8,6 @@
     <title>Nákup komponent | ReComp</title>
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
     <?php include '../app/views/articles/navbar.php'; ?>
@@ -30,7 +29,6 @@
                             <p class="mb-4">Nákup nových komponent není tak komplikovaná záležitost. V České republice máme hodně ověřených prodejců s dobrými zákaznickými podporami a službami. Dle mne jsou určitě nejspolehlivější <a href="https://www.alza.cz" target="_blank" class="text-decoration-none">Alza.cz</a>, <a href="https://www.smarty.cz" target="_blank" class="text-decoration-none">Smarty.cz</a>, <a href="https://www.datart.cz" target="_blank" class="text-decoration-none">Datart.cz</a>, <a href="https://www.mironet.cz" target="_blank" class="text-decoration-none">Mironet.cz</a> a i <a href="https://www.sunnysoft.cz" target="_blank" class="text-decoration-none">SunnySoft.cz</a>. Se všemi těmito prodejci já mám dobrou osobní zkušenost. Bavíme se samozřejmě, ale hlavně o nových komponentech. Alza a Smarty mají tedy i použité a rozbalené zboží, ale je to hodně nárazové a portál pro to není určený. Zároveň tito 2 prodejci nabízejí služby sestavení PC sestavy za poplatek u Alzy je poplatek za montáž 999,- a u Smarty je služba také za 999,-.</p>
 
                             <div class="alert alert-info mb-4">
-                                <i class="bi bi-info-circle me-2"></i>
                                 Pro jednoduchost je ideální nakupovat od jednoho prodejce, ovšem to nezohledňuje ekonomickou výhodnost. Je ideální si prostudovat vybrané komponenty a na serveru jako <a href="https://www.heureka.cz" target="_blank" class="text-decoration-none">Heureka.cz</a> si je individuálně projít zjistit, jestli není někde sleva, doprava zdarma, prodloužená záruka a podobně. Je důležité, ale sledovat spolehlivost daných obchodníků. Tímto způsobem se dá definitivně pár drobných ušetřit, neočekával bych tisíce, ale minimálně pár stovek korun ano.
                             </div>
                         </div>
@@ -43,7 +41,6 @@
                             <p class="mb-4">Hlavní portály pro toto zboží jsou v České republice <a href="https://www.bazos.cz" target="_blank" class="text-decoration-none">Bazoš.cz</a>, <a href="https://www.aukro.cz" target="_blank" class="text-decoration-none">Aukro.cz</a> a <a href="https://www.facebook.com/marketplace" target="_blank" class="text-decoration-none">Facebook Marketplace</a>. Všechny tyto stránky fungují trošičku jinak. Bazoš a FB Marketplace jsou doopravdy jen tržiště kde lidé vystavují cokoli chtějí. Bazoš ani FB Marketplace nejsou žádným prostředníkem při prodeji a distancují se od toho. Vše je na komunikaci s prodejcem a kupujícím. Je to poměrně riskantní obchodování, člověk si musí dávat pozor na falešné linky, podvodníky, neposílat žádné částky předem, snažit se domluvit si osobní předání a nebo platbu na dobírku, zároveň si také dávat pozor na skryté vady, poptat si kdyžtak foto zboží navíc, benchmarky komponentů, důkaz že fungují a podobně.</p>
 
                             <div class="alert alert-warning mb-4">
-                                <i class="bi bi-exclamation-triangle me-2"></i>
                                 <strong>Pozor na bezpečnost!</strong> Při nákupu použitého zboží vždy preferujte osobní předání nebo dobírku. Nikdy neposílejte peníze předem a vždy si ověřte funkčnost komponent.
                             </div>
 

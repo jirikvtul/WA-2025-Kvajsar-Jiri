@@ -10,11 +10,6 @@
  * - Přesměrování po registraci
  */
 
-// Nastavení zobrazení chyb pro vývojové prostředí
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Načtení potřebných modelů
 require_once '../models/Database.php';
 require_once '../models/User.php';
@@ -57,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Pokus o registraci nového uživatele
     if ($userModel->register($username, $email, $password, $name, $surname)) {
         // Úspěšná registrace - přesměrování na přihlašovací stránku
-        header("Location: /WA-2025-Kvajsar-Jiri/Projekt-Web/app/views/auth/login.php");
+        header("Location: ../views/auth/login.php");
         exit();
     } else {
         // Neúspěšná registrace
