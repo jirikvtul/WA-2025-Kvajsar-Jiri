@@ -23,10 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/cpu/cpu_create.php">Přidat CPU</a>
+                            <a class="nav-link" href="/WA-2025-Kvajsar-Jiri/Web-02/03-01php-solo/views/cpu/cpu_create.php">Přidat CPU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/cpu_list.php">Výpis CPU</a>
+                            <a class="nav-link" href="/WA-2025-Kvajsar-Jiri/Web-02/03-01php-solo/controllers/cpu_list.php">Výpis CPU</a>
                         </li>
                     </ul>
                 </div>
@@ -45,6 +45,7 @@
                         <th>Základní frekvence</th>
                         <th>Cena</th>
                         <th>Rok vydání</th>
+                        <th>Akce</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,10 @@
                             <td><?= htmlspecialchars($cpu['base_frequency'])?> GHz</td>
                             <td><?= htmlspecialchars($cpu['price'])?> Kč</td>
                             <td><?= htmlspecialchars($cpu['year'])?></td>
+                            <td>
+                                <a href="/WA-2025-Kvajsar-Jiri/Web-02/03-01php-solo/controllers/cpu_edit.php?id=<?= $cpu['id'] ?>" class="btn btn-primary btn-sm">Upravit</a>
+                                <a href="/WA-2025-Kvajsar-Jiri/Web-02/03-01php-solo/controllers/cpu_delete.php?id=<?= $cpu['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Opravdu chcete smazat tento procesor?')">Smazat</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

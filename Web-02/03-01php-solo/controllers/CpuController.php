@@ -57,6 +57,78 @@ class CpuController {
         $cpus = $this->cpuModel->getAll();
         include '../views/cpu/cpu_list.php'; 
     }
+
+    public function editCpu() {
+        if (!isset($_GET['id'])) {
+            header("Location: cpu_list.php");
+            exit();
+        }
+
+        $id = intval($_GET['id']);
+        $cpu = $this->cpuModel->getById($id);
+        
+        if (!$cpu) {
+            header("Location: cpu_list.php");
+            exit();
+        }
+
+        include '../views/cpu/cpu_edit.php';
+    }
+
+    public function updateCpu() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
+            $id = intval($_POST['id']);
+            $manufacturer = htmlspecialchars($_POST['manufacturer']);
+            $model = htmlspecialchars($_POST['model']);
+            $cores = intval($_POST['cores']);
+            $threads = intval($_POST['threads']);
+            $base_frequency = floatval($_POST['base_frequency']);
+            $turbo_frequency = !empty($_POST['turbo_frequency']) ? floatval($_POST['turbo_frequency']) : null;
+            $year = intval($_POST['year']);
+            $price = floatval($_POST['price']);
+            $socket = htmlspecialchars($_POST['socket']);
+            $description = htmlspecialchars($_POST['description']);
+            $link = htmlspecialchars($_POST['link']);
+
+            // Zpracování nahraných obrázků
+            $imagePaths = [];
+            if (!empty($_FILES['images']['name'][0])) {
+                $uploadDir = '../public/images/';
+                foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                    $filename = basename($_FILES['images']['name'][$key]);
+                    $targetPath = $uploadDir . $filename;
+
+                    if (move_uploaded_file($tmp_name, $targetPath)) {
+                        $imagePaths[] = '/public/images/' . $filename;
+                    }
+                }
+            }
+
+            $imagesJson = json_encode($imagePaths);
+
+            if ($this->cpuModel->update($id, $manufacturer, $model, $cores, $threads, $base_frequency, $turbo_frequency, $year, $price, $socket, $description, $link, $imagesJson)) {
+                header("Location: cpu_list.php");
+                exit();
+            } else {
+                echo "Chyba při aktualizaci procesoru.";
+            }
+        }
+    }
+
+    public function deleteCpu() {
+        if (isset($_GET['id'])) {
+            $id = intval($_GET['id']);
+            if ($this->cpuModel->delete($id)) {
+                header("Location: cpu_list.php");
+                exit();
+            } else {
+                echo "Chyba při mazání procesoru.";
+            }
+        } else {
+            header("Location: cpu_list.php");
+            exit();
+        }
+    }
 }
 
 // Volání metody při odeslání formuláře

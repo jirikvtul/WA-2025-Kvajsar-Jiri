@@ -42,4 +42,59 @@ class Cpu {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getById($id) {
+        $sql = "SELECT * FROM processors WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update($id, $manufacturer, $model, $cores, $threads, $base_frequency, $turbo_frequency, $year, $price, $socket, $description, $link, $images) {
+        $sql = "UPDATE processors SET 
+                manufacturer = :manufacturer,
+                model = :model,
+                cores = :cores,
+                threads = :threads,
+                base_frequency = :base_frequency,
+                turbo_frequency = :turbo_frequency,
+                year = :year,
+                price = :price,
+                socket = :socket,
+                description = :description,
+                link = :link,
+                images = :images,
+                updated_at = CURRENT_TIMESTAMP
+                WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+
+        // Převod turbo_frequency na NULL, pokud je prázdné
+        $turbo_frequency = $turbo_frequency ?: null;
+
+        // Převod images na JSON, pokud je to pole
+        $imagesJson = is_array($images) ? json_encode($images) : $images;
+
+        return $stmt->execute([
+            ':id' => $id,
+            ':manufacturer' => $manufacturer,
+            ':model' => $model,
+            ':cores' => $cores,
+            ':threads' => $threads,
+            ':base_frequency' => $base_frequency,
+            ':turbo_frequency' => $turbo_frequency,
+            ':year' => $year,
+            ':price' => $price,
+            ':socket' => $socket,
+            ':description' => $description,
+            ':link' => $link,
+            ':images' => $imagesJson
+        ]);
+    }
+
+    public function delete($id) {
+        $sql = "DELETE FROM processors WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([':id' => $id]);
+    }
 }
